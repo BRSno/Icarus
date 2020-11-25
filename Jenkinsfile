@@ -4,7 +4,7 @@ pipeline {
     stage('Retrieve Sources') {
       steps {
         echo workspace
-        git(branch: 'main', url: 'https://github.com/BRSweagle/Icarus')
+        git(branch: 'main', url: 'https://github.com/BRSno/Icarus')
       }
 }
     stage('Config') {
