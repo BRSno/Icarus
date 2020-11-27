@@ -9,7 +9,6 @@ pipeline {
 
     stage('Test') {
       steps {
-        snDevOpsStep(enabled:true,ignoreErrors:false)
         SWEAGLEUpload(actionName: 'uploadProp', fileLocation: 'Components/Files/*.properties', format: 'properties', nodePath: 'Icarus', tag: '${BUILD_ID}', filenameNodes: true)
         SWEAGLEUpload(actionName: 'uploadJSON', fileLocation: 'Components/Microservices/*.json', format: 'JSON', nodePath: 'Icarus', filenameNodes: true, tag: '${BUILD_ID}')
         SWEAGLEUpload(actionName: 'uploadprops', fileLocation: 'Components/Files/*.properties', format: 'properties', nodePath: 'Icarus,Components,Files', filenameNodes: true, tag: '${BUILD_ID}')
@@ -18,6 +17,7 @@ pipeline {
     }
 
     stage('Deploy') {
+      snDevOpsStep(enabled:true,ignoreErrors:true)
       steps {
         sleep 3
         echo 'Deploy complete'
