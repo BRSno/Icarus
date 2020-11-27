@@ -19,7 +19,7 @@ pipeline {
 
         stage('Validate') {
           steps {
-            SWEAGLEValidate(actionName: 'NoHTTP', mdsName: 'Icarus', stored: true)
+            SWEAGLEValidate(actionName: 'NoHTTP', mdsName: 'Icarus', stored: true, noPending: true)
           }
         }
 
