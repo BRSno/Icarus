@@ -11,7 +11,7 @@ pipeline {
       steps {
         SWEAGLEUpload(actionName: 'uploadProp', fileLocation: 'Components/Files/*.properties', format: 'properties', nodePath: 'Icarus', tag: '${BUILD_ID}', filenameNodes: true)
         SWEAGLEUpload(actionName: 'uploadJSON', fileLocation: 'Components/Microservices/*.json', format: 'JSON', nodePath: 'Icarus', filenameNodes: true, tag: '${BUILD_ID}')
-        SWEAGLEUpload(actionName: 'uploadprops', fileLocation: '*.properties', format: 'properties', nodePath: 'Icarus,Components,Files', filenameNodes: true, tag: '${BUILD_ID}')
+        SWEAGLEUpload(actionName: 'uploadprops', fileLocation: 'Components/Files/*.properties', format: 'properties', nodePath: 'Icarus,Components,Files', filenameNodes: true, tag: '${BUILD_ID}')
         SWEAGLEValidate(actionName: 'NoHTTP', mdsName: 'Icarus', stored: true, errMax: -1)
       }
     }
