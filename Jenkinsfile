@@ -17,7 +17,7 @@ pipeline {
     }
 
     stage('Deploy') {
-      snDevOpsStep(enabled:true,ignoreErrors:true)
+      snDevOpsChange()
       steps {
         sleep 3
         echo 'Deploy complete'
