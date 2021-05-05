@@ -21,6 +21,9 @@ pipeline {
         sleep 3
         echo 'Deploy complete'
         SWEAGLESnapshot(actionName: 'Snapshot', mdsName: 'Icarus', tag: '${BUILD_ID}')
+        snDevOpsStep(enabled:true)
+     // snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
+        snDevOpsChange()
       }
     }
 
