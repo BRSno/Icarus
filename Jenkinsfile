@@ -17,11 +17,11 @@ pipeline {
     }
 
     stage('Deploy') {
-      snDevOpsChange()
       steps {
         sleep 3
         echo 'Deploy complete'
         SWEAGLESnapshot(actionName: 'Snapshot', mdsName: 'Icarus', tag: '${BUILD_ID}')
+        snDevOpsChange()
       }
     }
 
