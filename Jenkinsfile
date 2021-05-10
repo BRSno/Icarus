@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         git(url: 'https://github.com/BRSno/Icarus', branch: 'main', poll: true)
+        snDevOpsStep(enabled:true)
       }
     }
 
@@ -21,7 +22,6 @@ pipeline {
         sleep 3
         echo 'Deploy complete'
         SWEAGLESnapshot(actionName: 'Snapshot', mdsName: 'Icarus', tag: '${BUILD_ID}')
-        snDevOpsStep(enabled:true)
         snDevOpsChange()
       }
     }
