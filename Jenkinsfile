@@ -21,8 +21,8 @@ pipeline {
         sleep 3
         echo 'Deploy complete'
         SWEAGLESnapshot(actionName: 'Snapshot', mdsName: 'Icarus', tag: '${BUILD_ID}')
-     //   snDevOpsStep(enabled:true)
-     //   snDevOpsChange()
+        snDevOpsStep(enabled:true)
+        snDevOpsChange()
       }
     }
 
